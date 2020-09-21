@@ -2,6 +2,8 @@
 
 Generate keys and create and sign transactions on the Elrond network. This library and its dependencies are all written in pure Rust to allow easy WASM generation in the future. See the tests for more examples.
 
+*Disclaimer*: this code has not been audited for correctness, use at your own risk. 
+
 ### Example interaction
 
 ```rust
