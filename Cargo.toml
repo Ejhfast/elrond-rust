@@ -1,0 +1,19 @@
+[package]
+name = "elrond-rust"
+version = "0.1.0"
+authors = ["Ethan Fast <ejhfast@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+serde = {version = "1.0.116", features = ["derive"] }
+serde_json = "1.0.57"
+hex = "0.4.2"
+bech32 = "0.7.2"
+rand = "0.7.3"
+ureq = {version = "1.4.1", features = ["json"] }
+bigdecimal = "0.2.0"
+
+[dependencies.ed25519-dalek]
+version = "1"
