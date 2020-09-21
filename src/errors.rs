@@ -1,5 +1,9 @@
+//! Error and Result types for the library 
+
+/// Convenient Result type used by `elrond_rust`
 pub type Result<T> = std::result::Result<T, ElrondClientError>;
 
+/// Error type used by `elrond_rust`
 #[derive(Debug, Clone)]
 pub struct ElrondClientError{
     message: String

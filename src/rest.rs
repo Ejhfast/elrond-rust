@@ -1,7 +1,7 @@
-use super::errors::{Result, ElrondClientError};
+//! An HTTP client for interaction with the Elrond network. 
+
 use serde_json::{Map, Value};
-use super::account::ElrondAddress;
-use super::transaction::{SignedTransaction, ElrondCurrencyAmount};
+use super::{SignedTransaction, ElrondCurrencyAmount, ElrondAddress, Result, ElrondClientError};
 
 /// Internal helper for type of outgoing request
 enum RequestType {

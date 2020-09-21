@@ -1,6 +1,9 @@
+//! Elrond accounts are based on public/private keypairs on the ed25519 curve. Addresses are derived
+//! using a bech32 encoding of the public key
+
 use bech32::{self, FromBase32, ToBase32};
 use ed25519_dalek::{PublicKey, SecretKey, Keypair, Signer};
-use super::errors::{Result, ElrondClientError};
+use super::{Result, ElrondClientError};
 use rand::rngs::OsRng;
 
 /// Representation for an address on the Elrond network. Addresses on Elrond are derived from

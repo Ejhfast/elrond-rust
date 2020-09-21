@@ -3,6 +3,10 @@ name = "elrond-rust"
 version = "0.1.0"
 authors = ["Ethan Fast <ejhfast@gmail.com>"]
 edition = "2018"
+license = "MIT"
+description = "Library for generating keys and creating and signing transactions on the Elrond network"
+readme = "Readme.md"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

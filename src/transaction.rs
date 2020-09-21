@@ -1,6 +1,7 @@
-use serde::{Serialize};
-use super::account::{Account, ElrondAddress};
-use super::errors::{ElrondClientError, Result};
+//! Logic for constructing transactions on the Elrond network.
+
+use serde::Serialize;
+use super::{Account, ElrondAddress, ElrondClientError, Result};
 use bigdecimal::BigDecimal;
 use std::str::FromStr;
 
@@ -20,12 +21,14 @@ impl Network {
     }
 }
 
+/// eGLD representation. "1 eGLD" is 10^18 on the blockchain
 #[derive(Clone, Debug, PartialEq)]
 pub struct ElrondCurrencyAmount {
     inner: String
 }
 
 impl ElrondCurrencyAmount {
+    /// Create an amount of eGLD from a human input, e.g., "2 eGLD"
     pub fn new(amount: &str) -> Result<Self> {
         let amount = BigDecimal::from_str(amount).map_err(|_| {
             ElrondClientError::new("could not parse amount as bigdecimal")
@@ -35,6 +38,7 @@ impl ElrondCurrencyAmount {
         let inner = format!("{}", converted_amount);
         Ok(Self { inner })
     }
+    /// Parse blockchain representation of eGLD into human readable form
     pub fn from_blockchain_precision(blockchain_amount: &str) -> Result<Self> {
         let amount = BigDecimal::from_str(blockchain_amount).map_err(|_| {
             ElrondClientError::new("could not parse amount as bigdecimal")
@@ -44,6 +48,7 @@ impl ElrondCurrencyAmount {
         let inner = format!("{}", converted_amount);
         Ok(Self { inner })
     }
+    /// Convert to string for serialization
     pub fn to_string(&self) -> String {
         self.inner.clone()
     }
@@ -59,7 +64,7 @@ pub struct UnsignedTransaction{
     sender: String,
     gas_price: u64,
     gas_limit: u64,
-    // 'chain_ID'needs to be weirdly cased due to requirements of Elrond API
+    // 'chain_ID' needs to be weirdly cased due to requirements of Elrond API
     chain_ID: String,
     version: u64
 }
