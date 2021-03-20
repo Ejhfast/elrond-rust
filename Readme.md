@@ -7,9 +7,7 @@ Generate keys and create and sign transactions on the Elrond network. This libra
 ### Example interaction
 
 ```rust
-use elrond_rust::client::Client;
-use elrond_rust::account::{Account, ElrondAddress};
-use elrond_rust::transaction::{UnsignedTransaction, Network};
+use elrond_rust::{Account, Client, Network, UnsignedTransaction};
 
 // initialize new client
 let client = Client::new();
@@ -35,7 +33,7 @@ client.post_signed_transaction(signed_tx).unwrap();
 ### Key generation
 
 ```rust
-use elrond_rust::account::Account;
+use elrond_rust::Account;
 let account = Account::generate();
 // access key representations provided by ed25519_dalek 
 let secret = account.secret;
